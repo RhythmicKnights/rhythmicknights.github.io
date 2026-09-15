@@ -91,49 +91,6 @@
     overflow-x: hidden;
   }
 
-  .site-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    min-height: 66px;
-    padding: 10px max(24px, calc((100vw - 1100px) / 2));
-    background: rgba(8,8,8,0.94);
-    border-bottom: 1px solid rgba(224,64,251,0.22);
-    backdrop-filter: blur(12px);
-  }
-
-  .nav-brand {
-    color: var(--light);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.25rem;
-    letter-spacing: 0.09em;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .nav-brand span { color: var(--pink); }
-  .nav-links { display: flex; align-items: center; gap: 22px; }
-  .nav-links a {
-    color: var(--light);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    text-transform: uppercase;
-    opacity: 0.78;
-  }
-  .nav-links a:hover { color: var(--cyan); opacity: 1; }
-  .nav-whatsapp {
-    padding: 9px 14px;
-    border: 1px solid var(--cyan);
-    color: var(--cyan) !important;
-    opacity: 1 !important;
-  }
-
   .hero {
     min-height: 82vh;
     display: flex;
@@ -431,10 +388,13 @@
   }
 
   .contact-card {
+    display: block;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(0,229,255,0.25);
     padding: 28px 36px;
     min-width: 220px;
+    color: var(--light);
+    text-decoration: none;
     transition: border-color 0.3s, box-shadow 0.3s;
   }
 
@@ -444,8 +404,13 @@
   }
 
   .contact-card .icon {
-    font-size: 1.8rem;
+    width: 32px;
+    height: 32px;
     margin-bottom: 12px;
+    color: var(--cyan);
+    stroke: currentColor;
+    stroke-width: 1.7;
+    fill: none;
   }
 
   .contact-card h4 {
@@ -456,7 +421,6 @@
     margin-bottom: 8px;
   }
 
-  .contact-card a,
   .contact-card p {
     font-size: 0.9rem;
     color: var(--light);
@@ -466,8 +430,9 @@
     line-height: 1.6;
   }
 
-  .contact-card a:hover {
-    color: var(--cyan);
+  .contact-card:focus-visible {
+    outline: 3px solid var(--pink);
+    outline-offset: 4px;
   }
 
   footer {
@@ -492,12 +457,8 @@
   }
 
   @media (max-width: 640px) {
-    .site-nav { padding: 10px 16px; min-height: 58px; }
-    .nav-brand { font-size: 1.05rem; }
-    .nav-links a:not(.nav-whatsapp) { display: none; }
-    .nav-whatsapp { padding: 8px 11px; }
     .hero { min-height: 74vh; padding-top: 48px; }
-    .hero-actions { flex-direction: column; width: min(320px, 100%); }
+    .hero-actions { width: min(320px, 100%); }
     .hero-actions .btn { width: 100%; }
     .trust-strip { grid-template-columns: 1fr 1fr; }
     .trust-item:nth-child(3) { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -538,17 +499,6 @@ loadScript(function(){
 
 <body>
 
-<nav class="site-nav" aria-label="Main navigation">
-  <a class="nav-brand" href="#home">Rhythmic <span>Knights</span></a>
-  <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#events">Events</a>
-    <a href="#diy">DIY Karaoke</a>
-    <a class="nav-whatsapp" href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20check%20karaoke%20availability.">WhatsApp</a>
-  </div>
-</nav>
-
 <section class="hero" id="home">
   <img
     class="hero-logo"
@@ -563,8 +513,7 @@ loadScript(function(){
   </p>
 
   <div class="hero-actions">
-    <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20check%20karaoke%20availability." class="btn primary">Check Your Date on WhatsApp</a>
-    <a href="#services" class="btn secondary">Explore Our Services</a>
+    <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20enquire%20about%20a%20karaoke%20booking." class="btn primary">Contact Us on WhatsApp</a>
   </div>
 </section>
 
@@ -574,6 +523,62 @@ loadScript(function(){
   <div class="trust-item">Complete Mobile Setup</div>
   <div class="trust-item">Johannesburg &amp; Gauteng</div>
 </div>
+
+
+<section id="gallery">
+  <div class="section-inner">
+
+    <h2 class="section-label">
+      Karaoke <span class="accent">Setup Gallery</span>
+    </h2>
+
+    <div class="divider"></div>
+
+    <p style="margin-bottom: 24px; opacity: 0.9; line-height: 1.7;">
+      A selection of Rhythmic Knights karaoke setups and events across Johannesburg
+      and Gauteng, from smaller private celebrations to larger corporate functions.
+    </p>
+
+    <div class="gallery-grid">
+
+      <img
+        src="corporate-karaoke-crowd.jpg"
+        alt="Guests enjoying hosted corporate karaoke with Rhythmic Knights"
+        class="wide"
+        loading="lazy"
+      >
+
+      <img
+        src="corporate-event-venue.jpg"
+        alt="Corporate function venue prepared for Rhythmic Knights entertainment"
+        loading="lazy"
+      >
+
+      <img
+        src="karaoke-setup-1.jpg"
+        alt="Karaoke machine hire setup for a Johannesburg event"
+        loading="lazy"
+      >
+
+      <img
+        src="karaoke-setup-2.jpg"
+        alt="Karaoke hire equipment setup for a Gauteng corporate event"
+        loading="lazy"
+      >
+
+      <img
+        src="karaoke-singers.jpg"
+        alt="Guests enjoying private party karaoke in Johannesburg"
+        loading="lazy"
+      >
+
+    </div>
+
+    <div class="section-cta">
+      <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20check%20karaoke%20availability." class="btn">Check Your Event Date</a>
+    </div>
+  </div>
+</section>
 
 
 <section id="services">
@@ -634,62 +639,6 @@ loadScript(function(){
         </p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-
-<section id="gallery">
-  <div class="section-inner">
-
-    <h2 class="section-label">
-      Karaoke <span class="accent">Setup Gallery</span>
-    </h2>
-
-    <div class="divider"></div>
-
-    <p style="margin-bottom: 24px; opacity: 0.9; line-height: 1.7;">
-      A selection of Rhythmic Knights karaoke setups and events across Johannesburg
-      and Gauteng, from smaller private celebrations to larger corporate functions.
-    </p>
-
-    <div class="gallery-grid">
-
-      <img
-        src="corporate-karaoke-crowd.jpg"
-        alt="Guests enjoying hosted corporate karaoke with Rhythmic Knights"
-        class="wide"
-        loading="lazy"
-      >
-
-      <img
-        src="corporate-event-venue.jpg"
-        alt="Corporate function venue prepared for Rhythmic Knights entertainment"
-        loading="lazy"
-      >
-
-      <img
-        src="karaoke-setup-1.jpg"
-        alt="Karaoke machine hire setup for a Johannesburg event"
-        loading="lazy"
-      >
-
-      <img
-        src="karaoke-setup-2.jpg"
-        alt="Karaoke hire equipment setup for a Gauteng corporate event"
-        loading="lazy"
-      >
-
-      <img
-        src="karaoke-singers.jpg"
-        alt="Guests enjoying private party karaoke in Johannesburg"
-        loading="lazy"
-      >
-
-    </div>
-
-    <div class="section-cta">
-      <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20check%20karaoke%20availability." class="btn">Check Your Event Date</a>
     </div>
   </div>
 </section>
@@ -808,45 +757,47 @@ loadScript(function(){
 
     <div class="contact-cards">
 
-      <div class="contact-card">
-        <span class="icon">📞</span>
-        <h4>Call or WhatsApp</h4>
-        <a
-          href="https://wa.me/27812306824"
-          aria-label="WhatsApp Rhythmic Knights Entertainment"
-        >
-          +27 81 230 6824
-        </a>
-        <p>Available 7 days a week</p>
-      </div>
+      <a
+        class="contact-card"
+        href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20enquire%20about%20a%20karaoke%20booking."
+        aria-label="Contact Rhythmic Knights on WhatsApp for booking enquiries"
+      >
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.5 2.5 2 4 4.5 4.8l1.2-1.1c.3-.3.7-.3 1-.1l1.8.9c.3.2.5.5.4.9-.3 1.4-1.5 2.3-2.9 2.2-4.5-.5-7.9-3.9-8.4-8.4-.1-1.4.8-2.6 2.2-2.9.4-.1.7.1.9.4l.9 1.8c.2.3.1.7-.1 1Z"/></svg>
+        <h4>WhatsApp Us</h4>
+        <p>+27 81 230 6824</p>
+        <p>Contact us for booking enquiries</p>
+      </a>
 
-      <div class="contact-card">
-        <span class="icon">📧</span>
+      <a
+        class="contact-card"
+        href="mailto:rhythmicknightsza@gmail.com?subject=Karaoke%20booking%20enquiry"
+        aria-label="Email Rhythmic Knights about a karaoke booking"
+      >
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
         <h4>Email Us</h4>
-        <a href="mailto:rhythmicknightsza@gmail.com">
-          rhythmicknightsza@gmail.com
-        </a>
+        <p>rhythmicknightsza@gmail.com</p>
         <p>Send your event details for a quote</p>
-      </div>
+      </a>
 
       <div class="contact-card">
-        <span class="icon">📍</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
         <h4>Service Area</h4>
         <p>Johannesburg & Gauteng</p>
         <p>Mobile karaoke entertainment throughout the province</p>
       </div>
 
-      <div class="contact-card">
-        <span class="icon">🌐</span>
+      <a
+        class="contact-card"
+        href="https://www.facebook.com/rhythmicknights"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit Rhythmic Knights on Facebook"
+      >
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M13.5 20v-7h2.4l.4-3h-2.8V8.1c0-.9.3-1.5 1.6-1.5h1.4V4a18 18 0 0 0-2.1-.1c-2.1 0-3.6 1.3-3.6 3.8V10H8.5v3h2.3v7"/></svg>
         <h4>Follow Us</h4>
-        <a
-          href="https://www.facebook.com/rhythmicknights"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Facebook Page
-        </a>
-      </div>
+        <p>Facebook Page</p>
+        <p>See updates, events and photos</p>
+      </a>
 
     </div>
 
