@@ -126,6 +126,12 @@
     color: var(--pink);
   }
 
+  .hero-logo { height: auto; mix-blend-mode: screen; filter: none; }
+  .hero h1 { width: min(560px, 100%); margin: 12px 0 20px; }
+  .hero-wordmark { display: block; position: relative; width: 100%; aspect-ratio: 1254 / 500; overflow: hidden; mix-blend-mode: screen; }
+  .hero-wordmark img { position: absolute; display: block; width: 100%; height: auto; left: 0; top: -70%; }
+  .hero h1 .hero-entertainment { display: block; font-size: clamp(1.65rem, 4.5vw, 2.8rem); letter-spacing: 0.14em; margin-top: 6px; }
+
   .hero p.tagline {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--cyan);
@@ -502,11 +508,15 @@ loadScript(function(){
 <section class="hero" id="home">
   <img
     class="hero-logo"
-    src="rhythmic-knights-logo.png"
+    src="rhythmic-knights-colour-2026.png"
+    width="1254" height="1254" fetchpriority="high"
     alt="Rhythmic Knights Entertainment karaoke hire in Johannesburg and Gauteng"
   >
 
-  <h1>Rhythmic Knights <span>Entertainment</span></h1>
+  <h1 aria-label="Rhythmic Knights Entertainment">
+    <span class="hero-wordmark"><img src="rhythmic-knights-silver-wordmark-2026.png" width="1254" height="1254" alt="Rhythmic Knights"></span>
+    <span class="hero-entertainment">Entertainment</span>
+  </h1>
 
   <p class="tagline">
     Karaoke Hire Johannesburg & Gauteng
