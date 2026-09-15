@@ -107,30 +107,35 @@
     overflow: hidden;
   }
 
-  .hero-logo {
-    width: min(285px, 72vw);
-    animation: fadeUp 1s ease both;
-    filter: drop-shadow(0 0 30px rgba(224,64,251,0.5));
-  }
-
   .hero h1 {
+    width: min(480px, 100%);
+    margin: 0 0 24px;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.8rem, 8vw, 6rem);
-    letter-spacing: 0.06em;
     line-height: 1;
-    margin: 20px 0 10px;
-    animation: fadeUp 1s 0.15s ease both;
+    mix-blend-mode: screen;
   }
-
-  .hero h1 span {
+  .hero-logo-frame {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1254 / 900;
+    overflow: hidden;
+  }
+  .hero-logo {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: -16.6667%;
+    left: 0;
+  }
+  .hero-entertainment {
+    display: block;
     color: var(--pink);
+    font-size: clamp(1.65rem, 4.5vw, 2.8rem);
+    letter-spacing: 0.14em;
+    margin-top: 8px;
   }
-
-  .hero-logo { height: auto; mix-blend-mode: screen; filter: none; animation: none; }
-  .hero h1 { width: min(560px, 100%); margin: 12px 0 20px; animation: none; mix-blend-mode: screen; }
-  .hero-wordmark { display: block; position: relative; width: 100%; aspect-ratio: 1254 / 500; overflow: hidden; mix-blend-mode: screen; }
-  .hero-wordmark img { position: absolute; display: block; width: 100%; height: auto; left: 0; top: -70%; }
-  .hero h1 .hero-entertainment { display: block; font-size: clamp(1.65rem, 4.5vw, 2.8rem); letter-spacing: 0.14em; margin-top: 6px; }
 
   .hero p.tagline {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
@@ -506,15 +511,10 @@ loadScript(function(){
 <body>
 
 <section class="hero" id="home">
-  <img
-    class="hero-logo"
-    src="rhythmic-knights-colour-2026.png?v=2"
-    width="1254" height="1254" fetchpriority="high"
-    alt="Rhythmic Knights Entertainment karaoke hire in Johannesburg and Gauteng"
-  >
-
   <h1 aria-label="Rhythmic Knights Entertainment">
-    <span class="hero-wordmark"><img src="rhythmic-knights-silver-wordmark-2026.png" width="1254" height="1254" alt="Rhythmic Knights"></span>
+    <span class="hero-logo-frame">
+      <img class="hero-logo" src="rhythmic-knights-colour-silver-2026.png" width="1254" height="1254" alt="Rhythmic Knights" fetchpriority="high">
+    </span>
     <span class="hero-entertainment">Entertainment</span>
   </h1>
 
