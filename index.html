@@ -21,12 +21,15 @@
 <meta property="og:title" content="Rhythmic Knights Entertainment | Karaoke Hire Johannesburg & Gauteng">
 <meta property="og:description" content="Hosted karaoke and DJ entertainment for private parties, birthdays and corporate functions across Johannesburg and Gauteng.">
 <meta property="og:url" content="https://rhythmicknights.co.za/">
-<meta property="og:image" content="https://rhythmicknights.co.za/karaoke-setup-1.jpg">
+<meta property="og:image" content="https://rhythmicknights.co.za/rhythmic-knights-social-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rhythmic Knights hosted karaoke in Johannesburg and Gauteng">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rhythmic Knights Entertainment | Karaoke Hire Johannesburg">
 <meta name="twitter:description" content="Hosted karaoke and DJ entertainment across Johannesburg and Gauteng.">
-<meta name="twitter:image" content="https://rhythmicknights.co.za/karaoke-setup-1.jpg">
+<meta name="twitter:image" content="https://rhythmicknights.co.za/rhythmic-knights-social-preview.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -88,14 +91,57 @@
     overflow-x: hidden;
   }
 
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 66px;
+    padding: 10px max(24px, calc((100vw - 1100px) / 2));
+    background: rgba(8,8,8,0.94);
+    border-bottom: 1px solid rgba(224,64,251,0.22);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-brand {
+    color: var(--light);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-brand span { color: var(--pink); }
+  .nav-links { display: flex; align-items: center; gap: 22px; }
+  .nav-links a {
+    color: var(--light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0.78;
+  }
+  .nav-links a:hover { color: var(--cyan); opacity: 1; }
+  .nav-whatsapp {
+    padding: 9px 14px;
+    border: 1px solid var(--cyan);
+    color: var(--cyan) !important;
+    opacity: 1 !important;
+  }
+
   .hero {
-    min-height: 100vh;
+    min-height: 82vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 80px 24px;
+    padding: 64px 24px 72px;
     position: relative;
     background:
       radial-gradient(ellipse at 30% 50%, rgba(224,64,251,0.12) 0%, transparent 60%),
@@ -105,7 +151,7 @@
   }
 
   .hero-logo {
-    width: min(340px, 80vw);
+    width: min(285px, 72vw);
     animation: fadeUp 1s ease both;
     filter: drop-shadow(0 0 30px rgba(224,64,251,0.5));
   }
@@ -154,6 +200,38 @@
     color: #000;
     box-shadow: var(--glow-pink);
   }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    animation: fadeUp 1s 0.45s ease both;
+  }
+
+  .hero-actions .btn { animation: none; }
+  .btn.primary { background: var(--pink); color: #080808; box-shadow: var(--glow-pink); }
+  .btn.primary:hover { background: var(--cyan); border-color: var(--cyan); box-shadow: var(--glow-cyan); }
+  .btn.secondary { border-color: rgba(255,255,255,0.45); color: var(--light); }
+  .btn.secondary:hover { border-color: var(--cyan); background: transparent; color: var(--cyan); box-shadow: var(--glow-cyan); }
+
+  .trust-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #050505;
+    border-top: 1px solid rgba(0,229,255,0.18);
+    border-bottom: 1px solid rgba(224,64,251,0.18);
+  }
+  .trust-item {
+    padding: 20px 16px;
+    color: var(--cyan);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .trust-item + .trust-item { border-left: 1px solid rgba(255,255,255,0.08); }
 
   section {
     padding: 90px 24px;
@@ -330,6 +408,15 @@
     animation: none;
   }
 
+  .affiliate-note {
+    margin: 16px auto 0 !important;
+    font-size: 0.72rem;
+    opacity: 0.55 !important;
+  }
+
+  .section-cta { margin-top: 34px; text-align: center; }
+  .section-cta .btn { animation: none; }
+
   #contact {
     background: radial-gradient(ellipse at center, rgba(224,64,251,0.1) 0%, var(--dark) 70%);
     text-align: center;
@@ -405,6 +492,16 @@
   }
 
   @media (max-width: 640px) {
+    .site-nav { padding: 10px 16px; min-height: 58px; }
+    .nav-brand { font-size: 1.05rem; }
+    .nav-links a:not(.nav-whatsapp) { display: none; }
+    .nav-whatsapp { padding: 8px 11px; }
+    .hero { min-height: 74vh; padding-top: 48px; }
+    .hero-actions { flex-direction: column; width: min(320px, 100%); }
+    .hero-actions .btn { width: 100%; }
+    .trust-strip { grid-template-columns: 1fr 1fr; }
+    .trust-item:nth-child(3) { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+    .trust-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.08); }
     .gallery-grid {
       grid-template-columns: 1fr;
     }
@@ -441,6 +538,17 @@ loadScript(function(){
 
 <body>
 
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="nav-brand" href="#home">Rhythmic <span>Knights</span></a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#events">Events</a>
+    <a href="#diy">DIY Karaoke</a>
+    <a class="nav-whatsapp" href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20check%20karaoke%20availability.">WhatsApp</a>
+  </div>
+</nav>
+
 <section class="hero" id="home">
   <img
     class="hero-logo"
@@ -454,10 +562,18 @@ loadScript(function(){
     Karaoke Hire Johannesburg & Gauteng
   </p>
 
-  <a href="#contact" class="btn">
-    Check Availability
-  </a>
+  <div class="hero-actions">
+    <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20check%20karaoke%20availability." class="btn primary">Check Your Date on WhatsApp</a>
+    <a href="#services" class="btn secondary">Explore Our Services</a>
+  </div>
 </section>
+
+<div class="trust-strip" aria-label="Why choose Rhythmic Knights">
+  <div class="trust-item">Established 2010</div>
+  <div class="trust-item">Professional Host</div>
+  <div class="trust-item">Complete Mobile Setup</div>
+  <div class="trust-item">Johannesburg &amp; Gauteng</div>
+</div>
 
 
 <section id="services">
@@ -540,9 +656,21 @@ loadScript(function(){
     <div class="gallery-grid">
 
       <img
+        src="corporate-karaoke-crowd.jpg"
+        alt="Guests enjoying hosted corporate karaoke with Rhythmic Knights"
+        class="wide"
+        loading="lazy"
+      >
+
+      <img
+        src="corporate-event-venue.jpg"
+        alt="Corporate function venue prepared for Rhythmic Knights entertainment"
+        loading="lazy"
+      >
+
+      <img
         src="karaoke-setup-1.jpg"
         alt="Karaoke machine hire setup for a Johannesburg event"
-        class="wide"
         loading="lazy"
       >
 
@@ -558,6 +686,10 @@ loadScript(function(){
         loading="lazy"
       >
 
+    </div>
+
+    <div class="section-cta">
+      <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20check%20karaoke%20availability." class="btn">Check Your Event Date</a>
     </div>
   </div>
 </section>
@@ -653,6 +785,7 @@ loadScript(function(){
       >
         Explore KaraFun
       </a>
+      <p class="affiliate-note">Rhythmic Knights may earn a commission if you subscribe through this link, at no extra cost to you.</p>
     </div>
   </div>
 </section>
@@ -682,7 +815,7 @@ loadScript(function(){
           href="https://wa.me/27812306824"
           aria-label="WhatsApp Rhythmic Knights Entertainment"
         >
-          +27812306824
+          +27 81 230 6824
         </a>
         <p>Available 7 days a week</p>
       </div>
