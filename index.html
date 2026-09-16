@@ -266,13 +266,7 @@
     border: 1px solid rgba(224,64,251,0.2);
     padding: 32px 24px;
     position: relative;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-
-  .service-card:hover {
-    border-color: var(--pink);
-    transform: translateY(-4px);
-    box-shadow: var(--glow-pink);
+    transition: border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
   }
 
   .service-card .icon {
@@ -348,6 +342,7 @@
     padding: 22px 24px;
     border-left: 3px solid var(--pink);
     background: rgba(224,64,251,0.04);
+    transition: border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
   }
 
   .event-item .num {
@@ -384,6 +379,7 @@
     padding: 38px 30px;
     border: 1px solid rgba(0,229,255,0.28);
     background: linear-gradient(135deg, rgba(0,229,255,0.06), rgba(224,64,251,0.06));
+    transition: border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
   }
 
   .diy-card h3 {
@@ -410,9 +406,6 @@
     opacity: 0.55 !important;
   }
 
-  .section-cta { margin-top: 34px; text-align: center; }
-  .section-cta .btn { animation: none; }
-
   #contact {
     background: radial-gradient(ellipse at center, rgba(224,64,251,0.1) 0%, var(--dark) 70%);
     text-align: center;
@@ -434,12 +427,31 @@
     min-width: 220px;
     color: var(--light);
     text-decoration: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
   }
 
-  .contact-card:hover {
-    border-color: var(--cyan);
-    box-shadow: var(--glow-cyan);
+  @media (hover: hover) and (pointer: fine) {
+    .service-card:hover,
+    .event-item:hover,
+    .diy-card:hover,
+    .contact-card:hover {
+      border-color: var(--pink);
+      transform: translateY(-4px);
+      box-shadow: var(--glow-pink);
+    }
+
+    .event-item:hover {
+      background: rgba(224,64,251,0.075);
+    }
+  }
+
+  .service-card:active,
+  .event-item:active,
+  .diy-card:active,
+  .contact-card:active {
+    border-color: var(--pink);
+    transform: translateY(-2px);
+    box-shadow: var(--glow-pink);
   }
 
   .contact-card .icon {
@@ -624,9 +636,6 @@ loadScript(function(){
 
     </div>
 
-    <div class="section-cta">
-      <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20check%20karaoke%20availability." class="btn">Check Your Event Date</a>
-    </div>
   </div>
 </section>
 
