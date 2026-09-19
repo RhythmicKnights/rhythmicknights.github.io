@@ -783,6 +783,28 @@
   .reviews-link { margin-top: 28px; max-width: 100%; text-align: center; animation: none; }
   .reviews-link:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
   @media (max-width: 800px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+  .google-reviews-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 12px 20px;
+    border: 1px solid rgba(255,255,255,0.32);
+    background: #fff;
+    color: #202124;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .google-reviews-badge img { width: 74px; height: auto; display: block; }
+  .google-reviews-badge:hover { color: #202124; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(255,255,255,0.24); }
+  .google-reviews-badge:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
 </style>
 <script>
 function syncHeadingDividers(){
@@ -1070,7 +1092,7 @@ loadScript(function(){
         <figcaption><strong>Sheran Reddy</strong><span class="review-source">Google review · Excerpt</span></figcaption>
       </figure>
     </div>
-    <a class="btn reviews-link" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x1e9574921a9c043d:0x72d4b2c76a592987?source=g.page.m.ia._" target="_blank" rel="noopener noreferrer">Read our reviews on Google</a>
+    <a class="google-reviews-badge" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x1e9574921a9c043d:0x72d4b2c76a592987?source=g.page.m.ia._" target="_blank" rel="noopener noreferrer" aria-label="Read Rhythmic Knights Entertainment reviews on Google"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google"> <span>Read our reviews</span></a>
   </div>
 </section>
 
