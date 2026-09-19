@@ -171,22 +171,30 @@
     text-align: center;
   }
 
+  .hero-banner-wrap {
+    width: 100%;
+    background: #000;
+    line-height: 0;
+    overflow: hidden;
+  }
+
   .hero-banner {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
+    object-fit: contain;
+    margin: 0 auto;
   }
 
   .hero-seo-title {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    position: fixed !important;
+    left: -10000px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
   }
 
   .hero-actions {
@@ -638,7 +646,9 @@ loadScript(function(){
 
 <section class="hero" id="home">
   <h1 class="hero-seo-title">Rhythmic Knights Entertainment | Karaoke Hire Johannesburg &amp; Gauteng</h1>
-  <img class="hero-banner" src="RK%20Social%20Sharing%20Banner.png" alt="Rhythmic Knights Entertainment karaoke hire in Johannesburg and Gauteng" width="1200" height="630" fetchpriority="high">
+  <div class="hero-banner-wrap">
+    <img class="hero-banner" src="RK%20Social%20Sharing%20Banner.png?v=20260919-2" alt="Rhythmic Knights Entertainment karaoke hire in Johannesburg and Gauteng" fetchpriority="high">
+  </div>
   <div class="hero-actions">
     <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20enquire%20about%20a%20karaoke%20booking." class="btn primary">Contact Us on WhatsApp</a>
   </div>
