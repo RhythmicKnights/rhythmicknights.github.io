@@ -199,15 +199,15 @@
   }
 
   .hero-actions {
-    position: absolute;
-    z-index: 2;
-    left: 49.5%;
-    right: auto;
-    bottom: 13.5%;
-    width: 40%;
+    position: fixed;
+    z-index: 1000;
+    left: auto;
+    right: 24px;
+    bottom: 24px;
+    width: auto;
     padding: 0;
     background: transparent;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   .hero p.tagline { display: none; }
@@ -252,8 +252,11 @@
     gap: 12px;
     padding: 7px 10px;
     border: 0;
-    background: transparent;
+    background: rgba(5,5,5,0.82);
+    border-radius: 999px;
     box-shadow: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     color: #fff;
     font-family: 'Exo 2', sans-serif;
     font-weight: 600;
@@ -271,7 +274,7 @@
     filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
   }
   .whatsapp-float:hover {
-    background: transparent;
+    background: rgba(5,5,5,0.92);
     color: #fff;
     box-shadow: none;
     transform: translateY(-1px);
@@ -753,7 +756,6 @@
   @media (orientation: landscape) and (max-height: 650px) {
     :root { --section-space: 54px; }
     .hero { min-height: 0; padding: 0; background: var(--dark); }
-    .hero-actions { left: 49.5%; right: auto; bottom: 13.5%; width: 40%; padding: 0; background: transparent; justify-content: center; }
     .hero p.tagline { margin-bottom: 22px; font-size: 0.92rem; }
     .btn { padding: 12px 30px; }
     .trust-strip { padding-top: 13px; padding-bottom: 13px; }
