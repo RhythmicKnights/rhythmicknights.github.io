@@ -770,6 +770,19 @@
     .btn { padding: 12px 30px; }
     .trust-strip { padding-top: 13px; padding-bottom: 13px; }
   }
+
+  #reviews { background: var(--mid); }
+  .reviews-intro { color: #ccc; font-size: 1rem; line-height: 1.7; margin-bottom: 24px; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+  .review-card { display: flex; flex-direction: column; min-width: 0; padding: 28px 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(0,229,255,0.25); }
+  .review-stars { color: #fbbc04; font-size: 1.2rem; letter-spacing: 0.12em; margin-bottom: 16px; }
+  .review-card blockquote { font-size: 1rem; line-height: 1.7; color: var(--light); margin-bottom: 24px; }
+  .review-card figcaption { margin-top: auto; line-height: 1.6; }
+  .review-card strong { display: block; color: var(--cyan); font-weight: 600; }
+  .review-source { display: block; color: #bbb; font-size: 0.875rem; }
+  .reviews-link { margin-top: 28px; max-width: 100%; text-align: center; animation: none; }
+  .reviews-link:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+  @media (max-width: 800px) { .reviews-grid { grid-template-columns: 1fr; } }
 </style>
 <script>
 function syncHeadingDividers(){
@@ -1033,6 +1046,33 @@ loadScript(function(){
   </div>
 </section>
 
+
+
+<section id="reviews" aria-labelledby="reviews-heading">
+  <div class="section-inner">
+    <h2 class="section-label" id="reviews-heading">What Our <span class="accent">Clients Say</span></h2>
+    <div class="divider"></div>
+    <p class="reviews-intro">Selected reviews from our clients on Google.</p>
+    <div class="reviews-grid">
+      <figure class="review-card">
+        <p class="review-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+        <blockquote><p>“Rhythmic Knights Entertainment was the perfect choice for our Casio Year-end Celebration. Quintin was very professional, and went the extra mile to make sure our function was a success.”</p></blockquote>
+        <figcaption><strong>thembi motanyane</strong><span class="review-source">Google review · Excerpt</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <p class="review-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+        <blockquote><p>“Highly professional &amp; loads of fun. We cannot recommend Quinton highly enough!”</p></blockquote>
+        <figcaption><strong>Gareth Newham</strong><span class="review-source">Google review</span></figcaption>
+      </figure>
+      <figure class="review-card">
+        <p class="review-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+        <blockquote><p>“This was absolutely amazing and made our event magical. Quinton is an exceptional DJ who knows how to get the crowd going. Everyone enjoyed the entertainment to the fullest.”</p></blockquote>
+        <figcaption><strong>Sheran Reddy</strong><span class="review-source">Google review · Excerpt</span></figcaption>
+      </figure>
+    </div>
+    <a class="btn reviews-link" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x1e9574921a9c043d:0x72d4b2c76a592987?source=g.page.m.ia._" target="_blank" rel="noopener noreferrer">Read our reviews on Google</a>
+  </div>
+</section>
 
 <section id="contact">
   <div class="section-inner">
