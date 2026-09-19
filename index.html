@@ -281,6 +281,21 @@
   .btn.secondary { border-color: rgba(255,255,255,0.45); color: var(--light); }
   .btn.secondary:hover { border-color: var(--cyan); background: transparent; color: var(--cyan); box-shadow: var(--glow-cyan); }
 
+  .karafun-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .karafun-btn img {
+    width: 58px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: none;
+    filter: none;
+  }
+
   .trust-strip {
     display: flex;
     justify-content: center;
@@ -932,12 +947,13 @@ loadScript(function(){
       </p>
       <a
         href="https://www.karafun.com/?aff=981"
-        class="btn"
+        class="btn karafun-btn"
         target="_blank"
         rel="sponsored noopener noreferrer"
         aria-label="Try KaraFun using the Rhythmic Knights affiliate link"
       >
-        Explore KaraFun
+        <img src="https://cdnaws.recis.io/i/img/00/61/25/c6_557609.jpg" alt="" aria-hidden="true" loading="lazy">
+        <span>Try KaraFun</span>
       </a>
       <p class="affiliate-note">Rhythmic Knights may earn a commission if you subscribe through this link, at no extra cost to you.</p>
     </div>
