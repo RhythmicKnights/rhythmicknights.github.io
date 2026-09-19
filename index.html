@@ -172,6 +172,7 @@
   }
 
   .hero-banner-wrap {
+    position: relative;
     width: 100%;
     background: #000;
     line-height: 0;
@@ -198,10 +199,12 @@
   }
 
   .hero-actions {
-    position: relative;
+    position: absolute;
     z-index: 2;
-    margin-top: -54px;
-    padding: 0 24px 14px;
+    left: 0;
+    right: 0;
+    bottom: 18px;
+    padding: 0 24px;
     background: transparent;
   }
 
@@ -595,7 +598,7 @@
   @media (max-width: 640px) {
     :root { --section-space: 58px; }
     .hero { min-height: 0; padding: 0; background: var(--dark); }
-    .hero-actions { width: 100%; margin-top: -46px; padding: 0 18px 12px; background: transparent; }
+    .hero-actions { width: 100%; left: 0; right: 0; bottom: 12px; padding: 0 18px; background: transparent; }
     .hero-actions { width: min(320px, 100%); }
     .hero-actions .btn { width: 100%; }
     .trust-strip { flex-wrap: wrap; padding: 12px 16px; }
@@ -623,7 +626,7 @@
   @media (orientation: landscape) and (max-height: 650px) {
     :root { --section-space: 54px; }
     .hero { min-height: 0; padding: 0; background: var(--dark); }
-    .hero-actions { width: 100%; margin-top: -42px; padding: 0 24px 10px; background: transparent; }
+    .hero-actions { width: 100%; left: 0; right: 0; bottom: 10px; padding: 0 24px; background: transparent; }
     .hero p.tagline { margin-bottom: 22px; font-size: 0.92rem; }
     .btn { padding: 12px 30px; }
     .trust-strip { padding-top: 13px; padding-bottom: 13px; }
@@ -650,10 +653,10 @@ loadScript(function(){
 <section class="hero" id="home">
   <h1 class="hero-seo-title">Rhythmic Knights Entertainment | Karaoke Hire Johannesburg &amp; Gauteng</h1>
   <div class="hero-banner-wrap">
-    <img class="hero-banner" src="RK%20Social%20Sharing%20Banner.png?v=20260919-2" alt="Rhythmic Knights Entertainment karaoke hire in Johannesburg and Gauteng" fetchpriority="high">
-  </div>
-  <div class="hero-actions">
-    <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20enquire%20about%20a%20karaoke%20booking." class="btn primary">Contact Us on WhatsApp</a>
+    <img class="hero-banner" src="RK%20Social%20Sharing%20Banner.png?v=20260919-3" alt="Rhythmic Knights Entertainment karaoke hire in Johannesburg and Gauteng" fetchpriority="high">
+    <div class="hero-actions">
+      <a href="https://wa.me/27812306824?text=Hi%20Q%2C%20I%27d%20like%20to%20enquire%20about%20a%20karaoke%20booking." class="btn primary">Contact Us on WhatsApp</a>
+    </div>
   </div>
 </section>
 
