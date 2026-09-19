@@ -355,6 +355,7 @@
   }
 
   .section-label {
+    display: table;
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     letter-spacing: 0.08em;
@@ -372,6 +373,10 @@
     background: linear-gradient(90deg, var(--pink), var(--cyan));
     margin-bottom: 36px;
     border-radius: 2px;
+  }
+
+  .section-label + .divider {
+    width: min(100%, var(--heading-divider-width, 60px));
   }
 
   #services {
@@ -745,6 +750,17 @@
   }
 </style>
 <script>
+function syncHeadingDividers(){
+  document.querySelectorAll('.section-label').forEach(function(heading){
+    var divider = heading.nextElementSibling;
+    if(divider && divider.classList.contains('divider')){
+      divider.style.setProperty('--heading-divider-width', heading.getBoundingClientRect().width + 'px');
+    }
+  });
+}
+window.addEventListener('load', syncHeadingDividers);
+window.addEventListener('resize', syncHeadingDividers);
+
 function loadScript(a){
   var b=document.getElementsByTagName("head")[0],
       c=document.createElement("script");
