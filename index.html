@@ -13,6 +13,33 @@
 
   gtag('config', 'G-DR5H0CW937');
 </script>
+<script>
+  document.addEventListener('click', function(event) {
+    var link = event.target.closest('a[href]');
+    if (!link || typeof gtag !== 'function') return;
+    var url;
+    try { url = new URL(link.href, document.baseURI); } catch (_) { return; }
+    var host = url.hostname.toLowerCase();
+    var eventName;
+    var destination;
+    if (host === 'wa.me' && url.pathname === '/27812306824') {
+      eventName = 'whatsapp_booking_click'; destination = 'whatsapp';
+    } else if (url.href === 'tel:+27812306824') {
+      eventName = 'telephone_click'; destination = 'telephone';
+    } else if (url.protocol === 'mailto:' && url.pathname.toLowerCase() === 'rhythmicknightsza@gmail.com') {
+      eventName = 'email_click'; destination = 'email';
+    } else if (host === 'www.google.com' && url.pathname.startsWith('/maps/place/')) {
+      eventName = 'google_reviews_click'; destination = 'google_reviews';
+    } else if (host === 'www.karafun.com') {
+      eventName = 'karafun_referral_click'; destination = 'karafun';
+    } else if (host === 'www.facebook.com') {
+      eventName = 'social_outbound_click'; destination = 'facebook';
+    } else { return; }
+    gtag('event', eventName, {
+      destination: destination
+    });
+  });
+</script>
 
 <title>Karaoke Hire Johannesburg & Gauteng | Rhythmic Knights Entertainment</title>
 
@@ -1139,6 +1166,12 @@ loadScript(function(){
         <h4>Email Us</h4>
         <p>rhythmicknightsza@gmail.com</p>
         <p>Send your event details for a quote</p>
+      </a>
+
+      <a class="contact-card" href="tel:+27812306824" aria-label="Call Rhythmic Knights about a booking">
+        <h4>Call Us</h4>
+        <p>+27 81 230 6824</p>
+        <p>Call for booking enquiries</p>
       </a>
 
       <div class="contact-card">
