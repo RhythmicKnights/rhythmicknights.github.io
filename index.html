@@ -907,15 +907,17 @@
   #host { background: var(--dark); }
   .host-grid {
     display: grid;
-    grid-template-columns: minmax(200px, 300px) 1fr;
+    grid-template-columns: minmax(200px, 260px) 1fr;
     gap: 34px;
     align-items: center;
   }
   .host-photo {
     width: 100%;
-    max-width: 300px;
+    max-width: 260px;
+    height: auto;
     aspect-ratio: 1 / 1;
-    object-fit: cover;
+    object-fit: contain;
+    display: block;
     border-radius: 10px;
     border: 1px solid rgba(224,64,251,.32);
     box-shadow: 0 0 24px rgba(224,64,251,.12);
@@ -1170,10 +1172,11 @@ loadScript(function(){
     <h2 class="section-label">Meet the <span class="accent">Host</span></h2>
     <div class="divider"></div>
     <div class="host-grid">
-      <img class="host-photo" src="quintin-host.svg" alt="Quintin Collett, owner and host of Rhythmic Knights Entertainment" loading="lazy" width="480" height="480">
+      <img class="host-photo" src="quintin-host-collage.png" alt="Photo collage of Quintin Collett, owner and host of Rhythmic Knights Entertainment" loading="lazy" width="1536" height="1536">
       <div class="host-copy">
         <h3>Quintin Collett</h3>
         <p>Rhythmic Knights Entertainment is led and hosted by Quintin Collett, a professional entertainer with more than 15 years of experience across karaoke, DJ and MC work.</p>
+        <p>Before founding Rhythmic Knights Entertainment, Quintin spent many years as a musical theatre actor in South African theatres.</p>
         <p>Since 2010, Quintin has hosted private celebrations and corporate events across Gauteng. The focus is simple: bring the right equipment, read the room and make it easy for guests to join in at their own comfort level.</p>
       </div>
     </div>
