@@ -834,6 +834,146 @@
   .google-reviews-badge img { width: 74px; height: auto; display: block; }
   .google-reviews-badge:hover { color: #202124; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(255,255,255,0.24); }
   .google-reviews-badge:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: rgba(8,8,8,0.94);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(0,229,255,0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .site-nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .site-nav-inner::-webkit-scrollbar { display: none; }
+  .site-nav a {
+    flex: 0 0 auto;
+    padding: 13px 12px;
+    color: rgba(240,240,240,0.78);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color .2s ease, background .2s ease;
+  }
+  .site-nav a:hover, .site-nav a:focus-visible {
+    color: var(--cyan);
+    background: rgba(0,229,255,0.06);
+    outline: none;
+  }
+
+  #how-it-works { background: #0c0c0c; }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .how-step {
+    padding: 26px 22px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.025);
+  }
+  .how-num {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--pink);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.55rem;
+    letter-spacing: .08em;
+  }
+  .how-step h3, .host-copy h3 {
+    color: var(--cyan);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.45rem;
+    letter-spacing: .06em;
+    margin-bottom: 9px;
+  }
+  .how-step p, .host-copy p {
+    line-height: 1.7;
+    opacity: .82;
+  }
+
+  #host { background: var(--dark); }
+  .host-grid {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    gap: 34px;
+    align-items: center;
+  }
+  .host-photo {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(224,64,251,.32);
+    box-shadow: 0 0 24px rgba(224,64,251,.12);
+  }
+  .host-copy p + p { margin-top: 12px; }
+
+  #faq { background: var(--mid); }
+  .faq-list {
+    display: grid;
+    gap: 10px;
+    max-width: 900px;
+  }
+  .faq-list details {
+    border: 1px solid rgba(0,229,255,.18);
+    background: rgba(255,255,255,.025);
+    padding: 0 18px;
+  }
+  .faq-list summary {
+    cursor: pointer;
+    padding: 17px 0;
+    color: var(--light);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .faq-list details[open] summary { color: var(--cyan); }
+  .faq-list details p {
+    padding: 0 0 18px;
+    line-height: 1.7;
+    opacity: .8;
+  }
+
+  #diy {
+    padding-top: clamp(38px, 4vw, 52px);
+    padding-bottom: clamp(38px, 4vw, 52px);
+  }
+  .diy-card-compact {
+    max-width: 620px;
+    padding: 24px 22px;
+  }
+  .diy-card-compact h3 { font-size: 1.45rem; margin-bottom: 8px; }
+  .diy-card-compact p { font-size: .88rem; margin-bottom: 14px; }
+  .diy-card-compact .karafun-btn {
+    padding: 10px 20px;
+    border: 1px solid rgba(0,229,255,.4);
+    color: var(--cyan);
+  }
+  .diy-card-compact .karafun-btn:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+  }
+
+  @media (max-width: 800px) {
+    .site-nav-inner { justify-content: flex-start; }
+    .site-nav a { padding: 12px 10px; font-size: .72rem; }
+    .how-grid { grid-template-columns: 1fr; }
+    .host-grid { grid-template-columns: 1fr; gap: 22px; }
+    .host-photo { max-width: 220px; }
+  }
 </style>
 <script>
 function syncHeadingDividers(){
@@ -876,6 +1016,18 @@ loadScript(function(){
     </div>
   </div>
 </section>
+
+<nav class="site-nav" aria-label="Page navigation">
+  <div class="site-nav-inner">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#host">Meet Q</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
 <div class="trust-strip" aria-label="Why choose Rhythmic Knights">
   <div class="trust-item"><span class="trust-value">Since 2010</span><span class="trust-label">Established experience</span></div>
@@ -1001,6 +1153,33 @@ loadScript(function(){
 </section>
 
 
+<section id="how-it-works">
+  <div class="section-inner">
+    <h2 class="section-label">How <span class="accent">It Works</span></h2>
+    <div class="divider"></div>
+    <div class="how-grid">
+      <div class="how-step"><span class="how-num">01</span><h3>Tell Us About Your Event</h3><p>Send the date, venue or area, approximate guest count and the type of event.</p></div>
+      <div class="how-step"><span class="how-num">02</span><h3>We Confirm &amp; Quote</h3><p>We confirm availability and recommend the right karaoke, DJ or hosting setup for your event.</p></div>
+      <div class="how-step"><span class="how-num">03</span><h3>We Set Up &amp; Host</h3><p>Rhythmic Knights arrives, sets up the equipment and runs the entertainment so you can enjoy the event.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="host">
+  <div class="section-inner">
+    <h2 class="section-label">Meet the <span class="accent">Host</span></h2>
+    <div class="divider"></div>
+    <div class="host-grid">
+      <img class="host-photo" src="quintin-host.svg" alt="Quintin Collett, owner and host of Rhythmic Knights Entertainment" loading="lazy" width="480" height="480">
+      <div class="host-copy">
+        <h3>Quintin Collett</h3>
+        <p>Rhythmic Knights Entertainment is led and hosted by Quintin Collett, a professional entertainer with more than 15 years of experience across karaoke, DJ and MC work.</p>
+        <p>Since 2010, Quintin has hosted private celebrations and corporate events across Gauteng. The focus is simple: bring the right equipment, read the room and make it easy for guests to join in at their own comfort level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="events">
   <div class="section-inner">
 
@@ -1067,38 +1246,6 @@ loadScript(function(){
 
 
 
-<section id="diy">
-  <div class="section-inner">
-    <h2 class="section-label">
-      Prefer a <span class="accent">DIY Option?</span>
-    </h2>
-    <div class="divider"></div>
-
-    <div class="diy-card">
-      <h3>Try KaraFun at Home</h3>
-      <p>
-        For the complete hosted experience, Rhythmic Knights brings the equipment,
-        setup and professional host to your event. If you would rather organise a
-        smaller do-it-yourself karaoke session, KaraFun lets you sing using your own
-        compatible devices.
-      </p>
-      <a
-        href="https://www.karafun.com/?aff=981"
-        class="btn karafun-btn"
-        target="_blank"
-        rel="sponsored noopener noreferrer"
-        aria-label="Try KaraFun using the Rhythmic Knights affiliate link"
-      >
-        <img src="https://cdnaws.recis.io/i/img/00/61/25/c6_557609.jpg" alt="" aria-hidden="true" loading="lazy">
-        <span>Explore KaraFun</span>
-      </a>
-      <p class="affiliate-note">Rhythmic Knights may earn a commission if you subscribe through this link, at no extra cost to you.</p>
-    </div>
-  </div>
-</section>
-
-
-
 <section id="reviews" aria-labelledby="reviews-heading">
   <div class="section-inner">
     <h2 class="section-label" id="reviews-heading">What Our <span class="accent">Clients Say</span></h2>
@@ -1122,6 +1269,31 @@ loadScript(function(){
       </figure>
     </div>
     <a class="google-reviews-badge" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x1e9574921a9c043d:0x72d4b2c76a592987?source=g.page.m.ia._" target="_blank" rel="noopener noreferrer" aria-label="Read Rhythmic Knights Entertainment reviews on Google"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google" width="272" height="92" loading="lazy" decoding="async"> <span>Read our reviews</span></a>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <h2 class="section-label">Quick <span class="accent">Questions</span></h2>
+    <div class="divider"></div>
+    <div class="faq-list">
+      <details>
+        <summary>What is included with a karaoke booking?</summary>
+        <p>Depending on the event, Rhythmic Knights can provide the host, sound system, wireless microphones, singer display and music, with DJ or MC support where required.</p>
+      </details>
+      <details>
+        <summary>Which areas do you cover?</summary>
+        <p>We are based in Johannesburg and work across Gauteng, including Sandton, Randburg, Midrand, Pretoria and surrounding areas. Travel is confirmed when we quote.</p>
+      </details>
+      <details>
+        <summary>How far ahead should I book?</summary>
+        <p>As early as possible is best, especially for Fridays, Saturdays and year-end functions. Short-notice bookings may still be possible depending on availability.</p>
+      </details>
+      <details>
+        <summary>Do you work weekends and public holidays?</summary>
+        <p>Yes. Rhythmic Knights is available seven days a week, including public holidays, subject to availability.</p>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -1212,6 +1384,19 @@ loadScript(function(){
   </div>
 </section>
 
+
+<section id="diy" aria-label="DIY karaoke option">
+  <div class="section-inner">
+    <div class="diy-card diy-card-compact">
+      <h3>Prefer DIY Karaoke?</h3>
+      <p>If you only need a small do-it-yourself karaoke option at home, you can explore KaraFun. For a hosted event with equipment and a professional host, book Rhythmic Knights above.</p>
+      <a href="https://www.karafun.com/?aff=981" class="btn karafun-btn" target="_blank" rel="sponsored noopener noreferrer" aria-label="Explore KaraFun using the Rhythmic Knights affiliate link">
+        <span>Explore KaraFun</span>
+      </a>
+      <p class="affiliate-note">Rhythmic Knights may earn a commission if you subscribe through this link, at no extra cost to you.</p>
+    </div>
+  </div>
+</section>
 
 <footer>
   <p>
