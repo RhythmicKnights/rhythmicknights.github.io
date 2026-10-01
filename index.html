@@ -996,6 +996,24 @@
     .host-grid { grid-template-columns: 1fr; gap: 22px; }
     .host-photo { max-width: 220px; }
   }
+  /* Shared feedback for finger presses, including non-link cards and photos. */
+  :is(.service-card, .event-item, .diy-card, .contact-card, .how-step,
+      .review-card, .host-photo, .host-copy, .faq-list details, .trust-item,
+      .gallery-grid img, .hero-banner, .btn, .google-reviews-badge):active,
+  .touch-glow {
+    border-color: var(--pink);
+    box-shadow: var(--glow-pink);
+  }
+  .touch-glow {
+    transition-duration: 0s;
+  }
+  .site-nav a:active, .site-nav a.touch-glow {
+    color: var(--cyan);
+    background: rgba(0,229,255,.10);
+    text-shadow: 0 0 10px rgba(0,229,255,.8);
+    box-shadow: inset 0 -2px 0 var(--pink), inset 0 0 16px rgba(224,64,251,.20);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .hero-logo-frame, .btn, .gallery-grid img, .service-card, .event-item,
@@ -1007,6 +1025,38 @@
   }
 </style>
 <script>
+
+// Make quick finger taps visible without blocking scrolling, links or FAQ controls.
+(function () {
+  var targets = '.service-card, .event-item, .diy-card, .contact-card, .how-step, .review-card, .host-photo, .host-copy, .faq-list details, .trust-item, .gallery-grid img, .hero-banner, .btn, .google-reviews-badge, .site-nav a';
+  var pressed = null, pointerId = null, startX = 0, startY = 0, releaseTimer;
+  function clearGlow() {
+    clearTimeout(releaseTimer);
+    if (pressed) pressed.classList.remove('touch-glow');
+    pressed = null;
+    pointerId = null;
+  }
+  document.addEventListener('pointerdown', function (event) {
+    if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+    clearGlow();
+    pressed = event.target.closest(targets);
+    if (!pressed) return;
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    startY = event.clientY;
+    pressed.classList.add('touch-glow');
+  }, { passive: true });
+  document.addEventListener('pointermove', function (event) {
+    if (event.pointerId === pointerId && Math.hypot(event.clientX - startX, event.clientY - startY) > 12) clearGlow();
+  }, { passive: true });
+  document.addEventListener('pointerup', function (event) {
+    if (event.pointerId === pointerId) releaseTimer = setTimeout(clearGlow, 220);
+  }, { passive: true });
+  document.addEventListener('pointercancel', clearGlow, { passive: true });
+  window.addEventListener('blur', clearGlow);
+  window.addEventListener('scroll', clearGlow, { passive: true });
+})();
+
 function syncHeadingDividers(){
   document.querySelectorAll('.section-label').forEach(function(heading){
     var divider = heading.nextElementSibling;
