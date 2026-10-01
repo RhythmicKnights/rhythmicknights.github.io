@@ -614,6 +614,7 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
+    html, body, body a, body button, body summary, body .faq-list summary,
     .hero-logo-frame,
     .btn,
     .gallery-grid img,
@@ -629,8 +630,12 @@
       filter: drop-shadow(0 0 14px rgba(224,64,251,0.72)) drop-shadow(0 0 24px rgba(0,229,255,0.28));
     }
 
-    .service-card:hover,
-    .event-item:hover,
+    .how-step:hover,
+    .review-card:hover,
+    .host-photo:hover,
+    .faq-list details:hover,
+    .trust-item:hover,
+    .service-card:hover,    .event-item:hover,
     .diy-card:hover,
     .contact-card:hover {
       border-color: var(--pink);
@@ -865,12 +870,27 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    transition: color .2s ease, background .2s ease;
+    transition: color .28s ease, background .28s ease, text-shadow .28s ease, box-shadow .28s ease;
   }
   .site-nav a:hover, .site-nav a:focus-visible {
     color: var(--cyan);
-    background: rgba(0,229,255,0.06);
-    outline: none;
+    background: rgba(0,229,255,0.10);
+    text-shadow: 0 0 10px rgba(0,229,255,.8);
+    box-shadow: inset 0 -2px 0 var(--pink), inset 0 0 16px rgba(224,64,251,.20);
+  }
+
+  .site-nav a:focus-visible, .faq-list summary:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: -3px;
+  }
+
+  /* Match the established card glow and lift on newer content blocks. */
+  .how-step, .review-card, .host-photo, .faq-list details, .trust-item {
+    transition: border-color .28s ease, transform .28s ease, box-shadow .28s ease;
+  }
+  .faq-list details:focus-within {
+    border-color: var(--pink);
+    box-shadow: var(--glow-pink);
   }
 
   #how-it-works { background: #0c0c0c; }
@@ -975,6 +995,15 @@
     .how-grid { grid-template-columns: 1fr; }
     .host-grid { grid-template-columns: 1fr; gap: 22px; }
     .host-photo { max-width: 220px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-logo-frame, .btn, .gallery-grid img, .service-card, .event-item,
+    .diy-card, .contact-card, .how-step, .review-card, .host-photo,
+    .faq-list details, .trust-item, .site-nav a, .google-reviews-badge {
+      transition: none;
+      transform: none !important;
+    }
   }
 </style>
 <script>
